@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.LoggerManager;
@@ -39,13 +40,22 @@ public class HomePage extends AbstractPage{
 
     //===========================Methods===================================//
 
+    @Step
+    public void openLoginPortalPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, loginPortalButton);
+        LoggerManager.info("Opened Login Portal Page");
+    }
 
     //===========================Assertions================================//
+
+    @Step
     public void verifyTextForLoginFormSection() {
         verifyTextInElement(loginPortalSectionCaption, LOGIN_PORTAL.getName());
         LoggerManager.info("Caption is " + loginPortalSectionCaption.getText());
         TestUtils.takeScreenshot(driver);
     }
+
+    @Step
     public void verifyTextForContactUsSection() {
         verifyTextInElement(contactUsSectionCaption, CONTACT_US.getName());
         LoggerManager.info("Caption is " + contactUsSectionCaption.getText());

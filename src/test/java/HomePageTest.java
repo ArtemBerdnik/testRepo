@@ -1,13 +1,11 @@
 import base.BaseTest;
 import base.TestContext;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.HomePage;
 
-@Epic("Test epic")
 @Feature("Home Page")
 class HomePageTest extends BaseTest {
 
