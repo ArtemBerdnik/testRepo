@@ -2,6 +2,7 @@ package pageobjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.LoggerManager;
 import utils.TestUtils;
 
 import static enums.CaptionsForSectionsInHomePage.CONTACT_US;
@@ -42,10 +43,12 @@ public class HomePage extends AbstractPage{
     //===========================Assertions================================//
     public void verifyTextForLoginFormSection() {
         verifyTextInElement(loginPortalSectionCaption, LOGIN_PORTAL.getName());
+        LoggerManager.info("Caption is " + loginPortalSectionCaption.getText());
         TestUtils.takeScreenshot(driver);
     }
     public void verifyTextForContactUsSection() {
         verifyTextInElement(contactUsSectionCaption, CONTACT_US.getName());
+        LoggerManager.info("Caption is " + contactUsSectionCaption.getText());
         TestUtils.takeScreenshot(driver);
     }
 
