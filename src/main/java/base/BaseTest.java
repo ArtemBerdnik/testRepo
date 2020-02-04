@@ -12,13 +12,15 @@ import javax.xml.bind.PropertyException;
 import java.util.NoSuchElementException;
 
 
+import static base.TestContext.*;
+
 public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
         BasicConfigurator.configure();
         String propertiesFile = ClassLoader.getSystemResource("application.properties").getPath();
-        TestContext.getPropertiesManager()
+        getPropertiesManager()
                 .setPropertiesResource(PropertiesResource.SYSTEM)
                 .setPropertiesResource(PropertiesResource.FILE)
                 .setPropertiesFile(propertiesFile);
@@ -26,28 +28,28 @@ public class BaseTest {
         Browser browser;
 
         try {
-            browser = Browser.valueOf(TestContext.getPropertiesManager().getProperty("browser").toUpperCase());
+            browser = Browser.valueOf(getPropertiesManager().getProperty("browser").toUpperCase());
         } catch (PropertyException e) {
             LoggerManager.warn("No browser was found in properties. Setting to default " + Browser.CHROME);
             browser = Browser.CHROME;
         }
 
-        TestContext.getWebDriverManager().setCurrentDriver(browser);
-        TestContext.getWebDriverManager().getCurrentDriver().getWebDriver().manage().window().maximize();
+        getWebDriverManager().setCurrentDriver(browser);
+        getWebDriverManager().getCurrentDriver().getWebDriver().manage().window().maximize();
     }
 
     @AfterAll
     static void afterAll() {
-        TestContext.getWebDriverManager().destroyCurrentWebDriver();
+        getWebDriverManager().destroyCurrentWebDriver();
     }
 
     @BeforeEach
     void beforeEach() {
         try {
-            TestContext.getWebDriverManager().getCurrentDriver().getWebDriver().get(TestContext.getPropertiesManager().getProperty("site.url"));
+            getWebDriverManager().getCurrentDriver().getWebDriver().get(TestContext.getPropertiesManager().getProperty("site.url"));
         } catch (NoSuchElementException | PropertyException e) {
             LoggerManager.fatal("Incorrect URL was specified in properties.");
-            TestContext.getWebDriverManager().destroyCurrentWebDriver();
+            getWebDriverManager().destroyCurrentWebDriver();
         }
     }
 }

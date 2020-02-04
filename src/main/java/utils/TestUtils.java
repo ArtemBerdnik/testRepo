@@ -20,6 +20,8 @@ public class TestUtils {
         String pageName = newPageLink.getText();
         newPageLink.click();
         ArrayList<String> newTab = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(newTab.get(0));
+        driver.close();
         newTab.remove(oldTab);
         driver.switchTo().window(newTab.get(0));
         takeScreenshot(driver);

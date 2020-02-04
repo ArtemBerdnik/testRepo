@@ -18,7 +18,7 @@ class LoginPageTest extends BaseTest {
     @Description("Open a Login page and login with incorrect credentials")
     void loginWithIncorrectCredentials() {
         homePage.openLoginPortalPage();
-        loginPortalPage.tryToLogin(Users.INCORRECT_USERNAME);
+        loginPortalPage.tryToLogin(Users.INCORRECT_USER);
         loginPortalPage.verifyLoginFailed();
     }
 }
