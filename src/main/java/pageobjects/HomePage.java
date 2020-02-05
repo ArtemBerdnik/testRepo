@@ -17,6 +17,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#contact-us")
     private WebElement contactUsPage;
 
+    @FindBy(css = "#button-clicks")
+    private WebElement buttonClicksPage;
+
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
@@ -54,6 +57,13 @@ public class HomePage extends AbstractPage{
         TestUtils.clickAndSwitchToNewTab(driver, contactUsPage);
         LoggerManager.info("Opened Contact Us Page");
     }
+
+    @Step
+    public void openButtonsClickPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, buttonClicksPage);
+        LoggerManager.info("Opened Button Clicks Page");
+    }
+
 
     //===========================Assertions================================//
 
