@@ -20,6 +20,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#button-clicks")
     private WebElement buttonClicksPage;
 
+    @FindBy(css = "#to-do-list")
+    private WebElement toDoListPage;
+
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
@@ -62,6 +65,12 @@ public class HomePage extends AbstractPage{
     public void openButtonsClickPage() {
         TestUtils.clickAndSwitchToNewTab(driver, buttonClicksPage);
         LoggerManager.info("Opened Button Clicks Page");
+    }
+
+    @Step
+    public void openToDoListPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, toDoListPage);
+        LoggerManager.info("Opened To Do List Page");
     }
 
 

@@ -42,4 +42,11 @@ public class TestUtils {
         wait.until(ExpectedConditions.visibilityOf(element));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
     }
+
+    public static void waitForElementToBeInvisible(WebElement element, int timeoutInSeconds) {
+        String elementName = element.getText();
+        WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
+        wait.until(ExpectedConditions.invisibilityOf(element));
+        LoggerManager.info(String.format("Wait for %s element for %d seconds", elementName, timeoutInSeconds));
+    }
 }
