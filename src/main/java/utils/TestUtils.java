@@ -49,4 +49,10 @@ public class TestUtils {
         wait.until(ExpectedConditions.invisibilityOf(element));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", elementName, timeoutInSeconds));
     }
+
+    public static void waitForElementToHaveSpecificText(WebElement element, String text, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
+        wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+        LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
+    }
 }

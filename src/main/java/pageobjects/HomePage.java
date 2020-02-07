@@ -23,6 +23,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#to-do-list")
     private WebElement toDoListPage;
 
+    @FindBy(css = "[href ='Accordion/index.html']")
+    private WebElement accordionPage;
+
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
@@ -71,6 +74,12 @@ public class HomePage extends AbstractPage{
     public void openToDoListPage() {
         TestUtils.clickAndSwitchToNewTab(driver, toDoListPage);
         LoggerManager.info("Opened To Do List Page");
+    }
+
+    @Step
+    public void openAccordionPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, accordionPage);
+        LoggerManager.info("Opened Accordion Page");
     }
 
 
