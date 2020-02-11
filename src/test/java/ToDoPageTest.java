@@ -7,7 +7,7 @@ import pageobjects.ToDoListPage;
 
 public class ToDoPageTest extends BaseTest {
 
-    private HomePage homePage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), HomePage.class);
+    private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
     private ToDoListPage toDoListPage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), ToDoListPage.class);
 
     @Test

@@ -7,7 +7,7 @@ import pageobjects.HomePage;
 
 public class AccordionPageTest extends BaseTest {
 
-    HomePage homePage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), HomePage.class);
+    private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
     AccordionPage accordionPage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), AccordionPage.class);
 
     @Test

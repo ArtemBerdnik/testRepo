@@ -1,10 +1,14 @@
 package pageobjects;
 
 import base.TestContext;
+import interfaces.impl.SimpleButton;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utils.CustomFieldDecorator;
 import utils.LoggerManager;
 import utils.TestUtils;
 
@@ -29,16 +33,20 @@ public class ContactUsPage extends AbstractPage {
     private WebElement message;
 
     @FindBy(css = "[type='reset']")
-    private WebElement resetButton;
+    private SimpleButton resetButton;
 
     @FindBy(css = "[type='submit']")
-    private WebElement submitButton;
+    private SimpleButton submitButton;
 
     @FindBy(css = "#contact_reply h1")
     private WebElement messageSuccessfullySent;
 
     private static final String ERROR_EMAIL_PAGE_URL = "http://webdriveruniversity.com/Contact-Us/contact_us.php";
     private static final String MESSAGE_ABOUT_SUCCESSFUL_SENDING = "Thank You for your Message!";
+
+    public ContactUsPage(WebDriver driver) {
+        PageFactory.initElements(new CustomFieldDecorator(driver), this);
+    }
 
     //============================Methods===================================//
 

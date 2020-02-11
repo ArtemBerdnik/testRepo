@@ -1,8 +1,6 @@
 import base.BaseTest;
 import base.TestContext;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.ContactUsPage;
 import pageobjects.HomePage;
 
@@ -11,15 +9,9 @@ import static enums.Users.INCORRECT_USER;
 
 class ContactUsPageTest extends BaseTest {
 
-    private ContactUsPage contactUsPage = PageFactory.initElements(TestContext.getWebDriverManager()
-            .getCurrentDriver().getWebDriver(), ContactUsPage.class);
-    private HomePage homePage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(),
-            HomePage.class);
+    private ContactUsPage contactUsPage = new ContactUsPage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
+    private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
 
-//    @AfterEach
-//    void afterEach() {
-//        TestContext.getWebDriverManager().getCurrentDriver().getWebDriver().close();
-//    }
 
     @Test
     void checkInvalidEmailCase() {

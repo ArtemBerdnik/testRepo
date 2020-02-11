@@ -7,8 +7,7 @@ import pageobjects.HomePage;
 
 class ButtonClicksTest extends BaseTest {
 
-    private HomePage homePage = PageFactory.initElements(
-            TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), HomePage.class);
+    private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
     private ButtonClicksPage buttonClicksPage = PageFactory.initElements(
             TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), ButtonClicksPage.class);
 

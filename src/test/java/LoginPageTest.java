@@ -11,8 +11,8 @@ import pageobjects.LoginPortalPage;
 @Feature("Login page")
 class LoginPageTest extends BaseTest {
 
-    private HomePage homePage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), HomePage.class);
-    private LoginPortalPage loginPortalPage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), LoginPortalPage.class);
+    private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
+    private LoginPortalPage loginPortalPage = new LoginPortalPage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
 
     @Test
     @Description("Open a Login page and login with incorrect credentials")

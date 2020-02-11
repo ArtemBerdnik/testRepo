@@ -1,6 +1,7 @@
 package utils;
 
 import base.TestContext;
+import interfaces.impl.SimpleButton;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,7 +19,7 @@ public class TestUtils {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    public static void clickAndSwitchToNewTab(WebDriver driver, WebElement newPageLink) {
+    public static void clickAndSwitchToNewTab(WebDriver driver, SimpleButton newPageLink) {
         String oldTab = driver.getWindowHandle();
         String pageName = newPageLink.getText();
         newPageLink.click();

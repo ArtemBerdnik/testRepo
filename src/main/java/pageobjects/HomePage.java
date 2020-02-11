@@ -1,8 +1,12 @@
 package pageobjects;
 
+import interfaces.impl.SimpleButton;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utils.CustomFieldDecorator;
 import utils.LoggerManager;
 import utils.TestUtils;
 
@@ -12,28 +16,28 @@ import static enums.CaptionsForSectionsInHomePage.LOGIN_PORTAL;
 public class HomePage extends AbstractPage{
 
     @FindBy(css = "#nav-title")
-    private WebElement homeButton;
+    private SimpleButton homeButton;
 
     @FindBy(css = "#contact-us")
-    private WebElement contactUsPage;
+    private SimpleButton contactUsPage;
 
     @FindBy(css = "#button-clicks")
-    private WebElement buttonClicksPage;
+    private SimpleButton buttonClicksPage;
 
     @FindBy(css = "#to-do-list")
-    private WebElement toDoListPage;
+    private SimpleButton toDoListPage;
 
     @FindBy(css = "[href ='Accordion/index.html']")
-    private WebElement accordionPage;
+    private SimpleButton accordionPage;
 
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
     @FindBy(css = "#play-icon-title")
-    private WebElement playVideoButton;
+    private SimpleButton playVideoButton;
 
     @FindBy(css = "#contact-us")
-    private WebElement contactUsButton;
+    private SimpleButton contactUsButton;
 
     @FindBy(css = "#contact-us .section-title")
     private WebElement contactUsSectionHeader;
@@ -42,13 +46,17 @@ public class HomePage extends AbstractPage{
     private WebElement contactUsSectionCaption;
 
     @FindBy(css = "#login-portal")
-    private WebElement loginPortalButton;
+    private SimpleButton loginPortalButton;
 
     @FindBy(css = "#login-portal .section-title")
     private WebElement loginPortalSectionHeader;
 
     @FindBy(css = "#login-portal .caption p")
     private WebElement loginPortalSectionCaption;
+
+    public HomePage(WebDriver driver) {
+        PageFactory.initElements(new CustomFieldDecorator(driver), this);
+    }
 
     //===========================Methods===================================//
 
