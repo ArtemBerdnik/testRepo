@@ -6,4 +6,6 @@ public interface Element {
 
     String getText();
 
+    WebElement getWrappedElement();
+
 }

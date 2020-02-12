@@ -72,23 +72,23 @@ public class AccordionPage extends AbstractPage {
 
     //================================Checks====================================
 
-    @Step
-    public void checkTextUnderManualAccordion() {
-        verifyTextInElement(testUnderManualTestingAccordion, MESSAGE_UNDER_MANUAL_ACCORDION);
-    }
-
-    @Step
-    public void checkTextUnderAutomationAccordion() {
-        verifyTextInElement(textUnderAutomationTestingAccordion, MESSAGE_UNDER_AUTOMATION_ACCORDION);
-    }
-
-    @Step
-    public void checkTextUnderCucumberAccordion() {
-        verifyTextInElement(textUnderCucumberAccordion, MESSAGE_UNDER_CUCUMBER_ACCORDION);
-    }
-
-    @Step
-    public void checkTextUnderClickingAccordion() {
-        verifyTextInElement(textUnderClickingAccordion, MESSAGE_UNDER_CLICKING_ACCORDION);
-    }
+//    @Step
+//    public void checkTextUnderManualAccordion() {
+//        verifyTextInElement(testUnderManualTestingAccordion, MESSAGE_UNDER_MANUAL_ACCORDION);
+//    }
+//
+//    @Step
+//    public void checkTextUnderAutomationAccordion() {
+//        verifyTextInElement(textUnderAutomationTestingAccordion, MESSAGE_UNDER_AUTOMATION_ACCORDION);
+//    }
+//
+//    @Step
+//    public void checkTextUnderCucumberAccordion() {
+//        verifyTextInElement(textUnderCucumberAccordion, MESSAGE_UNDER_CUCUMBER_ACCORDION);
+//    }
+//
+//    @Step
+//    public void checkTextUnderClickingAccordion() {
+//        verifyTextInElement(textUnderClickingAccordion, MESSAGE_UNDER_CLICKING_ACCORDION);
+//    }
 }

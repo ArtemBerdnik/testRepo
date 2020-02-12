@@ -1,6 +1,7 @@
 package utils;
 
 import base.TestContext;
+import interfaces.Element;
 import interfaces.impl.SimpleButton;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -32,15 +33,15 @@ public class TestUtils {
         LoggerManager.info("Switched to a tab with " + pageName);
     }
 
-    public static void waitForElementToBeClickable(WebElement element, int timeoutInSeconds) {
+    public static void waitForElementToBeClickable(Element element, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element.getWrappedElement()));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
     }
 
-    public static void waitForElementToBeVisible(WebElement element, int timeoutInSeconds) {
+    public static void waitForElementToBeVisible(Element element, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
-        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element.getWrappedElement()));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
     }
 

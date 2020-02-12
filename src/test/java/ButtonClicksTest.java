@@ -1,15 +1,13 @@
 import base.BaseTest;
 import base.TestContext;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.ButtonClicksPage;
 import pageobjects.HomePage;
 
 class ButtonClicksTest extends BaseTest {
 
     private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
-    private ButtonClicksPage buttonClicksPage = PageFactory.initElements(
-            TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), ButtonClicksPage.class);
+    private ButtonClicksPage buttonClicksPage = new ButtonClicksPage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
 
     @Test
     void clickButtonTest() {

@@ -1,11 +1,11 @@
 package utils;
 
+import interfaces.Element;
 import lombok.NonNull;
-import org.openqa.selenium.WebElement;
 
 public class JsActions extends JsManager {
 
-    public static void clickElement(@NonNull WebElement element) {
-        jsExec().executeScript("arguments[0].click();", element);
+    public static void clickElement(@NonNull Element element) {
+        jsExec().executeScript("arguments[0].click();", element.getWrappedElement());
     }
 }

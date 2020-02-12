@@ -1,6 +1,7 @@
 package pageobjects;
 
 import base.TestContext;
+import interfaces.Element;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.LoggerManager;
@@ -15,7 +16,7 @@ public abstract class AbstractPage {
 
     //================================Assertions==========================//
 
-    public void verifyTextInElement(WebElement element, String expectedText) {
+    public void verifyTextInElement(Element element, String expectedText) {
         assertEquals(element.getText(), expectedText);
         LoggerManager.info(String.format("Actual text = %s. Expected text = %s", element.getText(), expectedText));
     }

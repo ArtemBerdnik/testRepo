@@ -1,6 +1,8 @@
 package pageobjects;
 
 import interfaces.impl.SimpleButton;
+import interfaces.impl.SimpleLabel;
+import interfaces.impl.SimpleTextArea;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,19 +42,19 @@ public class HomePage extends AbstractPage{
     private SimpleButton contactUsButton;
 
     @FindBy(css = "#contact-us .section-title")
-    private WebElement contactUsSectionHeader;
+    private SimpleLabel contactUsSectionHeader;
 
     @FindBy(css = "#contact-us .caption p")
-    private WebElement contactUsSectionCaption;
+    private SimpleTextArea contactUsSectionCaption;
 
     @FindBy(css = "#login-portal")
     private SimpleButton loginPortalButton;
 
     @FindBy(css = "#login-portal .section-title")
-    private WebElement loginPortalSectionHeader;
+    private SimpleLabel loginPortalSectionHeader;
 
     @FindBy(css = "#login-portal .caption p")
-    private WebElement loginPortalSectionCaption;
+    private SimpleTextArea loginPortalSectionCaption;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(new CustomFieldDecorator(driver), this);

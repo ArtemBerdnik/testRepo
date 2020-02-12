@@ -1,21 +1,12 @@
 package interfaces.impl;
 
 import interfaces.Button;
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-public class SimpleButton implements Button {
-
-    protected WebElement wrappedElement;
+public class SimpleButton extends SimpleElement implements Button {
 
     public SimpleButton(WebElement element) {
-        this.wrappedElement = element;
-    }
-
-    @Override
-    public String getText() {
-        return wrappedElement.getText();
+        super(element);
     }
 
     @Override
