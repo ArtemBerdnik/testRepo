@@ -4,26 +4,32 @@ import interfaces.ListItem;
 import interfaces.WebList;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleWebList extends SimpleContainer implements WebList {
-//TODO add implementation
+
     public SimpleWebList(WebElement element) {
         super(element);
     }
 
     @Override
     public ListItem getItem(int index) {
-        return null;
+        return getItems().get(index);
     }
 
     @Override
     public List<ListItem> getItems() {
-        return null;
+        List<ListItem> webListItems = new ArrayList<>();
+        this.findAllElements().forEach(element -> {
+            webListItems.add(new SimpleListItem(element));
+        });
+
+        return webListItems;
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.findAllElements().size();
     }
 }

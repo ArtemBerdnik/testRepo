@@ -2,6 +2,8 @@ package pageobjects;
 
 import base.TestContext;
 import interfaces.impl.SimpleButton;
+import interfaces.impl.SimpleTextArea;
+import interfaces.impl.SimpleTextInput;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -18,19 +20,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ContactUsPage extends AbstractPage {
 
     @FindBy(css = ".section_header")
-    private WebElement pageHeader;
+    private SimpleTextArea pageHeader;
 
     @FindBy(css = "[name ='first_name']")
-    private WebElement firstName;
+    private SimpleTextInput firstName;
 
     @FindBy(css = "[name ='last_name']")
-    private WebElement lastName;
+    private SimpleTextInput lastName;
 
     @FindBy(css = "[name ='email']")
-    private WebElement emailAddress;
+    private SimpleTextInput emailAddress;
 
     @FindBy(css = "[name ='message']")
-    private WebElement message;
+    private SimpleTextInput message;
 
     @FindBy(css = "[type='reset']")
     private SimpleButton resetButton;
@@ -39,7 +41,7 @@ public class ContactUsPage extends AbstractPage {
     private SimpleButton submitButton;
 
     @FindBy(css = "#contact_reply h1")
-    private WebElement messageSuccessfullySent;
+    private SimpleTextArea messageSuccessfullySent;
 
     private static final String ERROR_EMAIL_PAGE_URL = "http://webdriveruniversity.com/Contact-Us/contact_us.php";
     private static final String MESSAGE_ABOUT_SUCCESSFUL_SENDING = "Thank You for your Message!";
@@ -52,13 +54,13 @@ public class ContactUsPage extends AbstractPage {
 
     @Step
     public void fillInForm(String fName, String lName, String email, String msg) {
-        firstName.sendKeys(fName);
+        firstName.specifyText(fName);
         LoggerManager.info("First name is set");
-        lastName.sendKeys(lName);
+        lastName.specifyText(lName);
         LoggerManager.info("Last name is set");
-        emailAddress.sendKeys(email);
+        emailAddress.specifyText(email);
         LoggerManager.info("Email address  is set");
-        message.sendKeys(msg);
+        message.specifyText(msg);
         LoggerManager.info("Message is set");
     }
 

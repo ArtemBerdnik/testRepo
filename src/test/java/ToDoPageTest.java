@@ -1,17 +1,16 @@
 import base.BaseTest;
 import base.TestContext;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.HomePage;
 import pageobjects.ToDoListPage;
 
 public class ToDoPageTest extends BaseTest {
 
     private HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
-    private ToDoListPage toDoListPage = PageFactory.initElements(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), ToDoListPage.class);
+    private ToDoListPage toDoListPage = new ToDoListPage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
 
     @Test
-    public void checkItemCanBeRemoved() {
+    void checkItemCanBeRemoved() {
         homePage.openToDoListPage();
         toDoListPage.deleteToDoItem("Buy new robes");
         toDoListPage.checkItemIsRemoved("Buy new robes");

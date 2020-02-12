@@ -45,16 +45,16 @@ public class TestUtils {
         LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
     }
 
-    public static void waitForElementToBeInvisible(WebElement element, int timeoutInSeconds) {
+    public static void waitForElementToBeInvisible(Element element, int timeoutInSeconds) {
         String elementName = element.getText();
         WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
-        wait.until(ExpectedConditions.invisibilityOf(element));
+        wait.until(ExpectedConditions.invisibilityOf(element.getWrappedElement()));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", elementName, timeoutInSeconds));
     }
 
-    public static void waitForElementToHaveSpecificText(WebElement element, String text, int timeoutInSeconds) {
+    public static void waitForElementToHaveSpecificText(Element element, String text, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver(), timeoutInSeconds);
-        wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+        wait.until(ExpectedConditions.textToBePresentInElement(element.getWrappedElement(), text));
         LoggerManager.info(String.format("Wait for %s element for %d seconds", element.getText(), timeoutInSeconds));
     }
 }

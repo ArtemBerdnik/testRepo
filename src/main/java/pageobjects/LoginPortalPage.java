@@ -2,6 +2,7 @@ package pageobjects;
 
 import enums.Users;
 import interfaces.impl.SimpleButton;
+import interfaces.impl.SimpleTextInput;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -17,10 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginPortalPage extends AbstractPage {
 
     @FindBy(css = "#text")
-    private WebElement usernameField;
+    private SimpleTextInput usernameField;
 
     @FindBy(css = "#password")
-    private WebElement passwordField;
+    private SimpleTextInput passwordField;
 
     @FindBy(css = "#login-button")
     private SimpleButton loginButton;
@@ -37,8 +38,8 @@ public class LoginPortalPage extends AbstractPage {
 
     @Step
     public void tryToLogin(Users user) {
-        usernameField.sendKeys(user.getUsername());
-        passwordField.sendKeys(user.getPassword());
+        usernameField.specifyText(user.getUsername());
+        passwordField.specifyText(user.getPassword());
         loginButton.click();
     }
 
