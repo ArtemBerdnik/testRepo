@@ -2,7 +2,6 @@ package interfaces.impl;
 
 import base.TestContext;
 import interfaces.Element;
-import interfaces.ListItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

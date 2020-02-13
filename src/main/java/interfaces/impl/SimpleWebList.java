@@ -2,6 +2,7 @@ package interfaces.impl;
 
 import interfaces.ListItem;
 import interfaces.WebList;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -31,5 +32,12 @@ public class SimpleWebList extends SimpleContainer implements WebList {
     @Override
     public int size() {
         return this.findAllElements().size();
+    }
+
+    @Override
+    public List<ListItem> findElementsInContainer(String css) {
+        List<ListItem> items = new ArrayList<>();
+        wrappedElement.findElements(By.cssSelector(css)).forEach(element -> items.add(new SimpleListItem(element)));
+        return items;
     }
 }

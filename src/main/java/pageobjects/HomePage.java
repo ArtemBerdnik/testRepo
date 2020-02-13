@@ -26,6 +26,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#button-clicks")
     private SimpleButton buttonClicksPage;
 
+    @FindBy(css = "#ajax-loader")
+    private SimpleButton ajaxLoaderPage;
+
     @FindBy(css = "#to-do-list")
     private SimpleButton toDoListPage;
 
@@ -90,6 +93,12 @@ public class HomePage extends AbstractPage{
     public void openAccordionPage() {
         TestUtils.clickAndSwitchToNewTab(driver, accordionPage);
         LoggerManager.info("Opened Accordion Page");
+    }
+
+    @Step
+    public void openAjaxLoaderPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, ajaxLoaderPage);
+        LoggerManager.info("Opened Ajax loader Page");
     }
 
 

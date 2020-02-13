@@ -6,6 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pageobjects.HomePage;
 import utils.LoggerManager;
 
 import javax.xml.bind.PropertyException;
@@ -15,6 +16,8 @@ import java.util.NoSuchElementException;
 import static base.TestContext.*;
 
 public class BaseTest {
+
+    public HomePage homePage = new HomePage(TestContext.getWebDriverManager().getCurrentDriver().getWebDriver());
 
     @BeforeAll
     static void beforeAll() {
