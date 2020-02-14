@@ -48,7 +48,7 @@ public class ToDoListPage extends AbstractPage {
                 .filter(todo -> todo.getWrappedElement().getText().equals(item))
                 .findFirst()
                 .get();
-        hoverOverElement(todoToBeRemoved.getWrappedElement());
+        hoverOverElement(todoToBeRemoved);
         trashIcon.getWrappedElement().findElement(By.xpath(String.format("//*[contains(text(),'%s')]//../span", item))).click();
         TestUtils.waitForElementToBeInvisible(todoToBeRemoved, 3);
         LoggerManager.info(String.format("The following todo item is removed: %s", item));

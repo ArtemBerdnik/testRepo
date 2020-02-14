@@ -35,6 +35,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "[href ='Accordion/index.html']")
     private SimpleButton accordionPage;
 
+    @FindBy(css = "#actions")
+    private SimpleButton actionsPage;
+
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
@@ -99,6 +102,12 @@ public class HomePage extends AbstractPage{
     public void openAjaxLoaderPage() {
         TestUtils.clickAndSwitchToNewTab(driver, ajaxLoaderPage);
         LoggerManager.info("Opened Ajax loader Page");
+    }
+
+    @Step
+    public void openActionsPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, actionsPage);
+        LoggerManager.info("Opened Actions Page");
     }
 
 
