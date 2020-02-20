@@ -38,6 +38,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#actions")
     private SimpleButton actionsPage;
 
+    @FindBy(css = "#file-upload")
+    private SimpleButton fileUploadPage;
+
     @FindBy(css = "#udemy-promo-video")
     private WebElement promoVideo;
 
@@ -108,6 +111,12 @@ public class HomePage extends AbstractPage{
     public void openActionsPage() {
         TestUtils.clickAndSwitchToNewTab(driver, actionsPage);
         LoggerManager.info("Opened Actions Page");
+    }
+
+    @Step
+    public void openFileUploadPage() {
+        TestUtils.clickAndSwitchToNewTab(driver, fileUploadPage);
+        LoggerManager.info("Opened File Upload Page");
     }
 
 
