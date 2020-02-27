@@ -38,6 +38,9 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "#actions")
     private SimpleButton actionsPage;
 
+    @FindBy(css = "#iframe")
+    private SimpleButton iframePage;
+
     @FindBy(css = "#file-upload")
     private SimpleButton fileUploadPage;
 
@@ -117,6 +120,12 @@ public class HomePage extends AbstractPage{
     public void openFileUploadPage() {
         TestUtils.clickAndSwitchToNewTab(driver, fileUploadPage);
         LoggerManager.info("Opened File Upload Page");
+    }
+
+    @Step
+    public void openIFramePage() {
+        TestUtils.clickAndSwitchToNewTab(driver, iframePage);
+        LoggerManager.info("Opened IFrame Page");
     }
 
 

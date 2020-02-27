@@ -35,4 +35,8 @@ public class SimpleElement implements Element {
         String cssSelector = proxy.split("selector: ")[1].substring(0, proxy.split("selector: ")[1].length()-1);
         return TestContext.getWebDriverManager().getCurrentDriver().getWebDriver().findElements(By.cssSelector(cssSelector));
     }
+
+    public void switchToMe() {
+        TestContext.getWebDriverManager().getCurrentDriver().switchToIFrame(this);
+    }
 }

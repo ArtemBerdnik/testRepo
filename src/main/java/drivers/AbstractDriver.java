@@ -1,6 +1,7 @@
 package drivers;
 
 import enums.Browser;
+import interfaces.Element;
 import org.openqa.selenium.WebDriver;
 import lombok.NonNull;
 
@@ -35,6 +36,11 @@ public abstract class AbstractDriver {
             webDriver.quit();
             webDriver = null;
         }
+    }
+
+    public void switchToIFrame(@NonNull final Element element) {
+        WebDriver driver = getWebDriver().switchTo().frame(element.getWrappedElement());
+        setWebDriver(driver);
     }
 
     public abstract void killWebDriverTasks();
